@@ -8,14 +8,13 @@
 	</head>
 	<body>
 		<div class="container">
-			<label for="input">
-				Digite seu objetivo
-				<input type="text" id="input" v-model="enteredValue" />
-				<button v-on:click="addGoal">Criar</button>
-			</label>
-			<ul>
-                <li v-for="goal in goals">{{ goal }}</li>
-            </ul>
+			<header>
+                <h1>Vue - The Complete Guide</h1>
+            </header>
+            <section id="user-goal">
+                <h2>My Course Goal</h2>
+                <p></p>
+            </section>
 		</div>
 		<script src="https://unpkg.com/vue@next"></script>
 		<script src="app.js"></script>
