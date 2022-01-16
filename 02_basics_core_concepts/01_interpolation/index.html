@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hello Vue</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			.container {
+				width: 100vw;
+				height: 100vh;
+                display: grid;
+                grid: 1fr 1fr / 1fr;
+                place-items: center;
+			}
+
+            #user-goal {
+                background-color: green;
+                color: white;
+                padding: 25px;
+                border-radius: 25px;
+                box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+            }
+
+            h1 {
+                color: rgb(47, 255, 113);
+                font-style: italic;
+                font-weight: 200;
+                font-size: 3rem;
+                text-shadow: 2px 2px 2px rgba(0,0,0,0.25);
+            }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Vue - The Complete Guide</h1>
+			</header>
+			<section id="user-goal">
+				<h2>My Course Goal</h2>
+				<p>{{ courseGoal }}</p>
+                <p>{{ outputGoal() }}</p>
+                <p><a v-bind:href="vueLink">Learn more</a></p>
+			</section>
+		</div>
+		<script src="https://unpkg.com/vue@next"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
