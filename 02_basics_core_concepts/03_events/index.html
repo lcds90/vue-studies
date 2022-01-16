@@ -1,26 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue Basics</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@next" defer></script>
-    <script src="app.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <h1>Vue Events</h1>
-    </header>
-    <section id="events">
-      <h2>Events in Action</h2>
-      <button>Add</button>
-      <button>Remove</button>
-      <p>Result: {{ counter }}</p>
-    </section>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vue Basics</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="styles.css" />
+		<script src="https://unpkg.com/vue@next" defer></script>
+		<script src="app.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<h1>Vue Events</h1>
+		</header>
+		<section id="events">
+			<h2>Events in Action</h2>
+			<button v-on:click="add">Add</button>
+			<button v-on:click.right="remove(1)" title="only with right click!">Remove</button>
+			<input
+				type="number"
+				min="1"
+				:value="multiplyNumber"
+			/>
+			<p v-once>Starting Counter: {{ counter }}</p>
+			<p>Result: {{ counter }}</p>
+			<hr />
+			<!-- <form v-on:submit.prevent="submitForm"> -->
+				<label for="fn"> First Name
+					<input
+						id="fn"
+						type="text"
+						v-on:input="setFirstName"
+						v-on:keyup.enter="submitName"
+            v-model="firstName"
+					/>
+				</label>
+        <label for="ln"> Last Name
+          <input
+          id="ln"
+					type="text"
+					v-on:input="setLastName($event, 'Santos')"
+					v-on:keyup.enter="submitName"
+          v-model="lastName"
+				/>
+        </label>
+				<p title="Press enter on one of the input above to see your full name">
+					Name in Input: {{ `${firstName} ${lastName}` }}
+          <br>
+          Confirmed Full Name: {{ confirmedName }}
+				</p>
+        <hr>
+        <p>
+          Output name (Method vs Computed) <br>
+          Method: {{ outputFullname() }} <br>
+          Computed: {{ fullname }}
+        </p>
+        
+        <button v-on:click="resetInput">Reset input</button>
+				<button>Sign Up</button>
+		<!-- 	</form> -->
+		</section>
+	</body>
 </html>
