@@ -24,7 +24,7 @@
       <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
       <p v-else-if="goals.length === 1">V-if, v-else-if and v-else remove elements</p>
       <ul v-else>
-        <li v-for="(goal, index) in goals" @click="removeGoal(index)" key="`${goal}-${index}`">
+        <li v-for="(goal, index) in goals" @click="removeGoal(index)" key="goal">
           <p>{{goal}} - {{ index }}</p>
           <input type="text" @click.stop>
         </li>
