@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+    <style>
+      .backgroundSelected {
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .demo {
+        transition: border-color 0.5s ease, background 2s ease, box-shadow 0.5s ease;
+      }
+
+      .isAnotherSelectedToo {
+       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+       transition: all 1s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Dynamic Styling</h1>
+    </header>
+    <section id="styling">
+      <div @click="boxSelected('A')" :style="{borderColor: boxA ? 'red' : '#ccc'}" :class="['demo', {backgroundSelected: boxA}]"></div>
+      <div @click="boxSelected('B')" :style="{borderColor: boxB ? 'blue' : '#ccc'}" class="demo" :class="{backgroundSelected: boxB}"></div>
+      <div @click="boxSelected('C')" :style="{borderColor: boxC ? 'green' : '#ccc'}" :class="boxC_classes"></div>
+    </section>
+  </body>
+</html>
