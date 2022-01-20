@@ -29,15 +29,34 @@
 					<div :style="playerHealthBar" class="healthbar__value"></div>
 				</div>
 			</section>
-			<section id="controls">
-				<button @click="attackMonster">ATTACK</button>
-				<button @click="specialAttackMonster" :disabled="mayUseSpecialAttack">SPECIAL ATTACK</button>
-				<button @click="healPlayer">HEAL</button>
-				<button>SURRENDER</button>
+			<section class="container" v-if="resultOfGame">
+				<h2>Game Over!</h2>
+				<h3 v-if="resultOfGame === 'monster'">You lost!</h3>
+				<h3 v-else-if="resultOfGame === 'player'">You win!</h3>
+				<h3 v-else>Its a draw!</h3>
+				<button @click="startGame">Start new game</button>
+				<section id="log" class="container">
+					<h2>Battle Log</h2>
+					<ul>
+						<li v-for="log in logs">
+							<span :class="dynamicColorCharacter(log.actionBy)">{{ log.actionBy === 'player' ? 'Player' : 'Monster' }}</span>
+							<span v-if="log.actionType === 'heal'"> heals himself for <span class="log--heal">{{ log.actionValue }}</span></span>
+							<span v-else> attacks and deals <span class="log--damage">{{ log.actionValue }}</span></span>
+						</li>
+					</ul>
+				</section>
 			</section>
-			<section id="log" class="container">
-				<h2>Battle Log</h2>
-				<ul></ul>
+			<section id="controls">
+				<button :disabled="isGameOver" @click="attackMonster">ATTACK</button>
+				<button
+					:disabled="isGameOver"
+					@click="specialAttackMonster"
+					:disabled="mayUseSpecialAttack"
+				>
+					SPECIAL ATTACK
+				</button>
+				<button :disabled="isGameOver" @click="healPlayer">HEAL</button>
+				<button :disabled="isGameOver">SURRENDER</button>
 			</section>
 		</div>
 	</body>
