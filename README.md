@@ -41,7 +41,7 @@ Projetos realizados durante o curso, cada projeto aborda conceitos que foram pra
 <a id="intro"></a>
 <details>
     <summary>
-        <h2 style="display: inline; border: 0">Introdução</h2>
+        Introdução</h2>
     </summary>
 
 [Ir ao topo](#topo)
@@ -61,7 +61,7 @@ Projetos realizados durante o curso, cada projeto aborda conceitos que foram pra
 <a id="concepts"></a>
 <details>
     <summary>
-        <h2 style="display: inline; border: 0">Conceitos Fundamentais</h2>
+        Conceitos Fundamentais
     </summary>
 
 [Ir ao topo](#topo)
@@ -151,7 +151,7 @@ Para o clássico `addEventListener` do Javascript, Vue oferece observadores de e
 <a id="rendering"></a>
 <details>
     <summary>
-        <h2 style="display: inline; border: 0">Renderização</h2>
+        Renderização</h2>
     </summary>
 
 [Ir ao topo](#topo)
@@ -175,7 +175,7 @@ Para o clássico `addEventListener` do Javascript, Vue oferece observadores de e
 <a id="behind"></a>
 <details>
     <summary>
-        <h2 style="display: inline; border: 0">Por trás das cenas</h2>
+        Por trás das cenas</h2>
     </summary>
 
 [Ir ao topo](#topo)
@@ -229,7 +229,7 @@ Em ordem subsequente são eles:
 <a id="components"></a>
 <details>
     <summary>
-        <h2 style="display: inline; border: 0">Componetização</h2>
+        Componetização</h2>
     </summary>
 
 [Ir ao topo](#topo)
@@ -247,7 +247,7 @@ Em ordem subsequente são eles:
 <a id="forms"></a>
 <details>
     <summary>
-        <h2 style="display: inline; border: 0">Formulários</h2>
+        Formulários</h2>
     </summary>
 
 [Ir ao topo](#topo)
@@ -263,7 +263,7 @@ Em ordem subsequente são eles:
 <a id="http"></a>
 <details>
     <summary>
-        <h2 style="display: inline; border: 0">Requisições HTTP</h2>
+        Requisições HTTP</h2>
     </summary>
 
 [Ir ao topo](#topo)
@@ -279,7 +279,7 @@ Em ordem subsequente são eles:
 <a id="router"></a>
 <details>
     <summary>
-        <h2 style="display: inline; border: 0">Roteamento / (Rotas na aplicação)</h2>
+        Roteamento / (Rotas na aplicação)</h2>
     </summary>
 
 [Ir ao topo](#topo)
