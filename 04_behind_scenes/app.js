@@ -10,12 +10,48 @@ const app = Vue.createApp({
       this.currentUserInput = event.target.value;
     },
     setText() {
-      this.message = this.currentUserInput;
+      console.log('refs', this.$refs);
+      console.dir(this.$refs.userText);
+      const value = this.$refs.userText.value
+      this.message = value;
+      
     },
   },
+  beforeCreate(){
+    console.log('beforeCreate() is executed even before Vue app is initialized');
+  },
+  created(){
+    console.log('created() is executed when its created but not mounted');
+  },
+  beforeMount(){
+    console.log('beforeMount() is executed before mounted')
+  },
+  mounted(){
+    console.log('mounted() is executed when the instance is mounted');
+    const that = this;
+    setTimeout(() => {
+      that.message = 'Love Vue!'
+    }, 2000)
+  },
+  beforeUpdate(){
+    console.log('beforeUpdate() is executed before updating when something changes');
+  },
+  updated(){
+    console.log('update() is executed when something changes');
+  },
+  beforeUnmount(){
+    console.log('beforeUnmount() is executed before the instance is unmounted');
+  },
+  unmounted(){
+    console.log('unmounted() is executed when the instance is "killed"');
+  }
 });
 
 app.mount('#app');
+
+setTimeout(() => {
+  app.unmount();
+}, 4000)
 
 const app2 = Vue.createApp({
   template: `

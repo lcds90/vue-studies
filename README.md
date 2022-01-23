@@ -121,6 +121,10 @@ Quando queremos algo dinâmico presente em algum atributo no elemento utilizamos
 
 #### v-on
 
+Para o clássico `addEventListener` do Javascript, Vue oferece observadores de evento com o uso da diretiva `v-on`, possibilitando a utilização de métodos para tais eventos.
+
+``
+
 ##### Native event
 
 ### Data Binding
@@ -184,9 +188,39 @@ Quando queremos algo dinâmico presente em algum atributo no elemento utilizamos
 
 ### Refs
 
-### Como Vue atualiza o DOM
+Refs em um elemento são utilizadas para referênciar o uso do elemento e sua manipulação dentro do ecosistema do Vue, o clássico `document.querySelector(SELETOR)` 
 
-### Ciclo da Vida
+```html
+<input type="text" @input="saveInput" ref="userText">
+```
+
+```js
+// Através da chave global com $ podemos acessar refs que contém um array de objetos referênciados
+console.log(this.$refs.userText);
+```
+
+### Ciclo de Vida
+
+<details>
+    <summary>Imagem oficial da documentação</summary>
+
+![Ciclo de vida do Vue](https://v3.vuejs.org/images/lifecycle.svg)
+
+</details>
+
+Assim como outros frameworks, Vue também possui seus ciclos de vidas *(lifecycles)*.
+Em ordem subsequente são eles:
+
+> Não inicialize suas funções com arrow functions pois perde-se a referência de **this**!
+
+- beforeCreate()
+- created()
+- beforeMount()
+- mounted()
+- beforeUpdate()
+- updated()
+- beforeUnmount()
+- unmounted()
 
 </details>
 
