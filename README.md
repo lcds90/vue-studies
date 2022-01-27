@@ -47,12 +47,39 @@ Projetos realizados durante o curso, cada projeto aborda conceitos que foram pra
 [Ir ao topo](#topo)
 
 ### O que é Vue JS?
-
+ É um framework Javascript progressivo, sendo escalavel como uma biblioteca em um projeto ou utilizado como um framework para o desenvolvimento de interfaces.
+ Sendo necessário o conhecimento de HTML, CSS e Javascript, sendo a junção das melhores partes referente ao React e Angular!
 ### Formas de utilização
 
+Vue possibilita a integração em um projeto existente através da CDN ou através da utilização do terminal com Vue CLI e Vue UI.
 #### CDN
 
+```html
+<script src="https://unpkg.com/vue@next"></script>
+```
+
+### npm
+
+```sh
+npm install vue@next
+```
+
 #### Vue CLI / Node JS
+
+Vue oferece seu [CLI oficial](https://cli.vuejs.org/), 
+
+```sh
+npm install -g @vue/cli
+```
+
+Com ele você tem a possibilidade de criar sua aplicação através de:
+
+```sh
+vue create project-name
+
+# Interface gráfica para utilização
+vue ui
+```
 
 </details>
 
@@ -71,6 +98,8 @@ Projetos realizados durante o curso, cada projeto aborda conceitos que foram pra
 
 
 ### Data
+
+
 
 ### Methods
 
