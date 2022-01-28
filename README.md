@@ -148,6 +148,12 @@ Quando queremos algo dinâmico presente em algum atributo no elemento utilizamos
 ```
 > Se o valor atribuido for `null` ou `undefined` o atributo não será renderizado
 
+##### Curiosidade
+> Passar todas as props de um componente de uma vez
+O v-bind sem argumento possibilita passar todas as props de uma só vez para o componente
+```html
+<blog-post v-bind="post"></blog-post> <!-- post: { id: 1, title: 'My Journey with Vue' } -->
+```
 #### v-on
 
 Para o clássico `addEventListener` do Javascript, Vue oferece observadores de evento com o uso da diretiva `v-on`, possibilitando a utilização de métodos para tais eventos.
@@ -265,9 +271,45 @@ Em ordem subsequente são eles:
 
 ### Problema
 
+O maior problema é que a tendência que a aplicação aumente, muitas coisas vão se repetir caso venha manter listas encapsulado em determinada lógica.
+
 ### Solução
 
+Componetizar é a solução, pois além de reaproveitamos lógica podemos encapsular com algo interno e ainda assim ter acesso a informações externas, como veremos a mais na seção. 
+
 ### Boas práticas
+
+### Props
+
+São como atributos HTML, é a forma mais básica para passar dados de um componente pai para o filho
+
+```html
+<!-- Passando dados do pai -->
+<friend-contact
+    name="A very cool person"
+    phone-number="123 678 000"
+    email-address="cool@email.com" 
+/>
+```
+
+```html
+<!-- Na options API, você utiliza a chave props para receber-las no filho -->
+<!-- Vue traduz automaticamente o hifen para camelCase -->
+<script>
+    export default {
+        props: [
+            'name',
+            'phoneNumber',
+            'emailAddress'
+        ],
+        data(){
+            // ...
+        }
+    }
+</script>
+```
+
+
 
 </details>
 
