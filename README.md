@@ -148,6 +148,8 @@ Quando queremos algo dinâmico presente em algum atributo no elemento utilizamos
 ```
 > Se o valor atribuido for `null` ou `undefined` o atributo não será renderizado
 
+<a id="curiosityProps"></a>
+
 ##### Curiosidade
 > Passar todas as props de um componente de uma vez
 O v-bind sem argumento possibilita passar todas as props de uma só vez para o componente
@@ -290,18 +292,42 @@ São como atributos HTML, é a forma mais básica para passar dados de um compon
     phone-number="123 678 000"
     email-address="cool@email.com" 
 />
+
+<!-- Passando valores em um v-for,
+você precisa atribuir um v-bind para acesso aos valores
+do indice atual do item percorrido -->
+<friend-contact
+    v-for="friend in friends"
+    :key="friend.id"
+    :name="friend.name"
+    :phone-number="friend.phoneNumber"
+    :email-address="friend.email" 
+/>
 ```
+[É possível passar todas as props de uma única vez](#curiosityProps)
 
 ```html
 <!-- Na options API, você utiliza a chave props para receber-las no filho -->
 <!-- Vue traduz automaticamente o hifen para camelCase -->
 <script>
     export default {
-        props: [
-            'name',
-            'phoneNumber',
-            'emailAddress'
-        ],
+        // Sem validação
+        // props: ["name", "emailAddress", "phoneNumber"],
+        // Podemos validar as props, caso serem erradas será lançado um alerta no console no navegador
+        props: {
+            name: String,
+            phoneNumber: String,
+            emailAddress: String,
+            isFavorite: {
+                type: Boolean,
+                default: false,
+                validator: function(value){
+                    // Isso é só um exemplo, sabemos que Boolean é só um ou outro 😅
+                    return value === true || value === false
+                }
+            }
+        }
+        
         data(){
             // ...
         }
@@ -309,7 +335,26 @@ São como atributos HTML, é a forma mais básica para passar dados de um compon
 </script>
 ```
 
+#### Tipos de props
+Os seguintes tipos são suportados:
+- String
+- Number
+- Boolean
+- Array
+- Object
+- Date
+- Function
+- Symbol
+- Qualquer função com `constructor`
 
+Você não pode mudar as props diretamente do filho através da atribuição com this
+```js
+toggleFavorite(){
+    if(this.isFavorite === '1') this.isFavorite = '0'
+    else this.isFavorite = '1'
+}
+```
+[Uma forma alternativa seria essa implementação](/05_components/02_communication/src/components/FriendContact.vue#29)
 
 </details>
 

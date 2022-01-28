@@ -5,6 +5,7 @@
     </header>
     <ul>
       <friend-contact v-for="friend in friends" :key="friend.id" v-bind="friend" />
+      <friend-contact v-bind="friend" isFavorite />
     </ul>
   </section>
 </template>
@@ -13,6 +14,12 @@
 export default {
   data() {
     return {
+      friend: {
+        id: "leo",
+          name: "Leonardo Santos",
+          phone: "0123 45678 90",
+          email: "leo@localhost.com",
+      },
       friends: [
         {
           id: "manuel",
