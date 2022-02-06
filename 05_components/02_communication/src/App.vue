@@ -2,10 +2,11 @@
   <section>
     <header>
       <h1>My Friends</h1>
+      <new-friend @add-contact="addContact" />
     </header>
     <ul>
-      <friend-contact v-for="friend in friends" :key="friend.id" v-bind="friend" />
-      <friend-contact v-bind="friend" isFavorite />
+      <friend-contact v-for="friend in friends" @toggle-favorite="toggleFavoriteStatus" @delete-contact="deleteContact" :key="friend.id" v-bind="friend" />
+      <!-- <friend-contact v-bind="friend" isFavorite /> -->
     </ul>
   </section>
 </template>
@@ -25,17 +26,31 @@ export default {
           id: "manuel",
           name: "Manuel Lorenz",
           phone: "0123 45678 90",
-          email: "manuel@localhost.com",
+          email: "manuel@localhost.com", 
+          isFavorite: false,
         },
         {
           id: "julie",
           name: "Julie Jones",
           phone: "0987 654421 21",
           email: "julie@localhost.com",
+          isFavorite: false,
         },
       ],
     };
   },
+  methods: {
+    addContact(friend){
+      this.friends.push(friend);
+    },
+    deleteContact(id){
+      this.friends = this.friends.filter((friend) => friend.id !== id);
+    },
+    toggleFavoriteStatus(friendId){
+      const friendFound = this.friends.find((friend) => friend.id === friendId);
+      friendFound.isFavorite = !friendFound.isFavorite
+    }
+  }
 };
 </script>
 

@@ -356,6 +356,13 @@ toggleFavorite(){
 ```
 [Uma forma alternativa seria essa implementação](/05_components/02_communication/src/components/FriendContact.vue#29)
 
+### Emits
+
+O problema que quando estamos alterando algo dentro do componente, a alteração não é realizada no componente pai. 
+Para que o pai possa escutar eventos do filho, e que a mudança seja realizada em ambos, utilizamos o emit
+
+A chave emits serve para **documentar** e mostrar quais eventos customizados estão sendo utilizados no componente
+
 </details>
 
 ---
