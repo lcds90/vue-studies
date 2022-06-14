@@ -1,10 +1,10 @@
 import { ref, computed, watch, isRef } from 'vue';
 
-const search = (arr, keyToSearch) => {
+const search = (arr, keyToSearch, context = null) => {
     const items = isRef(arr) ? arr : ref(arr);
     const enteredSearchTerm = ref('');
     const activeSearchTerm = ref('');
-
+    if(context) context.emit('hello');
     const availableItems = computed(function () {
       let filteredItems = [];
       if (activeSearchTerm.value) {

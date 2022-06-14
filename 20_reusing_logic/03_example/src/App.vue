@@ -1,6 +1,6 @@
 <template>
   <main>
-    <user-list :users="activeUsers" @list-projects="selectUser"></user-list>
+    <user-list @hello="hello" :users="activeUsers" @list-projects="selectUser"></user-list>
     <projects-list :user="selectedUser"></projects-list>
   </main>
 </template>
@@ -26,7 +26,9 @@ export default {
       selectedUser.value = activeUsers.find((usr) => usr.id === uid);
     }
 
-    return { selectedUser, activeUsers, selectUser };
+    const hello = () => window.alert('hello')
+
+    return { selectedUser, activeUsers, selectUser, hello };
   },
 };
 </script>

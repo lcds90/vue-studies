@@ -27,9 +27,9 @@ export default {
     UserItem,
   },
   props: ['users'],
-  emits: ['list-projects'],
-  setup(props) {
-    const [query, updateSearch, availableUsers] = useSearch(props.users, 'fullName'); 
+  emits: ['list-projects', 'hello'],
+  setup(props, context) {
+    const [query, updateSearch, availableUsers] = useSearch(props.users, 'fullName', context); 
     const [sort, sorting, displayedUsers] = useSort(availableUsers, 'fullName');
     return {
       query,
